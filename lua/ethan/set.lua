@@ -2,6 +2,9 @@ require("ethan.getOS")
 
 operatingSystem = getOS()
 
+vim.opt.syntax = "on"
+vim.opt.filetype = "on"
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -29,7 +32,13 @@ end
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
+
+vim.opt.ls = 0
+--vim.api.guioptions = "r"
+--gui-horiz-scroll = ""
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+
+vim.opt.cursorline = true
