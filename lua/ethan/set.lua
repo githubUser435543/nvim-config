@@ -38,6 +38,8 @@ vim.opt.ls = 0
 --vim.api.guioptions = "r"
 --gui-horiz-scroll = ""
 
+vim.opt.clipboard
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
