@@ -15,6 +15,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
+
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -34,13 +35,13 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = false
 
-vim.opt.ls = 0
---vim.api.guioptions = "r"
---gui-horiz-scroll = ""
+vim.opt.cursorline = true
 
-vim.opt.clipboard
+vim.opt.list = true
+vim.opt.listchars = {tab = ">> "}
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = "yes"
 
 vim.opt.cursorline = true
+
