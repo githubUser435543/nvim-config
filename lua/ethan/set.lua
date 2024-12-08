@@ -1,7 +1,6 @@
 require("ethan.getOS")
 
 operatingSystem = getOS()
-
 vim.opt.syntax = "on"
 vim.opt.filetype = "on"
 
@@ -24,14 +23,14 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 
-if operatingSystem == "GNU/Linux" then
+if string.find(operatingSystem, "inux") ~= nil then
     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 elseif operatingSystem == "Windows" then
     vim.opt.undodir = ".vim/undodir"
 end
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+-- vim.opt.hlsearch = false
+-- vim.opt.incsearch = true
 
 vim.opt.termguicolors = false
 
@@ -45,3 +44,7 @@ vim.opt.signcolumn = "yes"
 
 vim.opt.cursorline = true
 
+vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
