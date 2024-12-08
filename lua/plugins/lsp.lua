@@ -40,6 +40,24 @@ return {
                         capabilities = capabilities
                     }
                 end,
+                
+                ["basedpyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.basedpyright.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                pythonPath = "/usr/bin/python3",
+                            },
+                            basedpyright = {
+                                analysis = {
+                                    typeCheckingMode = "basic",
+                                    diagnosticMode = "workspace",
+                                }
+                            }
+                        }
+                    }
+                end,
 
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
@@ -68,8 +86,8 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+                ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<C-n'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
