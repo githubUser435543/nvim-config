@@ -18,6 +18,13 @@ vim.keymap.set("n", "<leader>r", ":%s//g<left><left>")
 vim.keymap.set("n", "<leader>die", "<cmd>CellularAutomaton make_it_rain<CR>")
 -- vim.keymap.set("n", "<leader>g", "<Cmd>ma g<CR>_i-- <Esc><Cmd>'g<CR>3<left>")
 
+vim.keymap.set("i", "<C-_>", "<ESC>_i", { desc = "move beginning of line" })
+vim.keymap.set("i", "<C-$>", "<End>", { desc = "move end of line" })
+vim.keymap.set("i", "<C-h>", "<Left>", { desc = "move left" })
+vim.keymap.set("i", "<C-l>", "<Right>", { desc = "move right" })
+vim.keymap.set("i", "<C-j>", "<Down>", { desc = "move down" })
+vim.keymap.set("i", "<C-k>", "<Up>", { desc = "move up" })
+
 -- vim.api.nvim_create_autocmd()
 vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight when yanking text",

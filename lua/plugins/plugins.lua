@@ -3,7 +3,7 @@ return {
     { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
     {"eandrju/cellular-automaton.nvim"},
     {"ThePrimeagen/vim-be-good"},
-    {"williamboman/mason.nvim"}
+    {"williamboman/mason.nvim"},
 }
 
 

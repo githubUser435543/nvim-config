@@ -17,6 +17,7 @@ return {
     config = function()
         require("conform").setup({
             formatters_by_ft = {
+                python = { "isort", "black" }
             }
         })
         local cmp = require('cmp')
@@ -32,7 +33,8 @@ return {
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
-                "basedpyright"
+                "basedpyright",
+                "clangd",
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -40,7 +42,7 @@ return {
                         capabilities = capabilities
                     }
                 end,
-                
+
                 ["basedpyright"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.basedpyright.setup {
@@ -73,6 +75,27 @@ return {
                         }
                     }
                 end,
+
+                ["clangd"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.clangd.setup {
+                        capabilities = capabilities,
+                        settings = {},
+                        cmd = {
+                            "clangd",
+                            --"Wall",
+                            --"-DLOCAL",
+                            --"-I /home/ethan/Programs/",
+                            --"-std=c++20",
+                            --"-Wextra ",
+                            --"-Wshadow",
+                            --"-Wconversion",
+                            --"-Wfloat-equal",
+                            --"-Wduplicated-cond",
+                            --"-Wlogical-op",
+                        }
+                    }
+                end,
             }
         })
 
@@ -88,6 +111,7 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
                 ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
                 ['<C-n'] = cmp.mapping.confirm({ select = true }),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
                 ["<C-Space>"] = cmp.mapping.complete(),
             }),
             sources = cmp.config.sources({
@@ -111,3 +135,5 @@ return {
         })
     end
 }
+
+
