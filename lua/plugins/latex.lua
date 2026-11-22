@@ -5,8 +5,9 @@ return {
   init = function()
     -- VimTeX configuration goes here, e.g.
     vim.g.vimtex_view_method = "zathura"
-    vim.g.compiler_method = "latexmk" 
+    vim.g.clmpiler_method = "texi2pdf" 
     vim.keymap.set('n', '<leader>p', ":! zathura <C-r>=expand('%:r')<cr>.pdf &<cr>")
     
   end
 }
+
